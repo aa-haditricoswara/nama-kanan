@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8"><title>Nama tim kanan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html,body{margin:0;width:100%;height:100%;background:transparent;overflow:hidden}
+svg{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+#p{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-sizing:border-box;font-family:'Oswald','Arial Narrow',sans-serif;font-weight:700;font-style:italic;letter-spacing:1px;white-space:nowrap;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7);background:linear-gradient(270deg,#08182a,#0d3550);border-bottom:2px solid #e3b449;clip-path:polygon(5% 0,100% 0,100% 100%,0 100%)}
+#p::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-130%);animation:sh 5s ease-in-out 0.7s infinite}
+@keyframes sh{0%,55%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet"></head><body>
+<div id="p"><span id="t"></span></div>
+<script>
+const NAMA="MUSUH ALLAH";   /* ganti nama di sini, atau tambahkan di alamat: ?t=NAMA TIM&fs=60 (fs = ukuran huruf dalam persen tinggi plakat, kosong = otomatis) */
+const Q=new URLSearchParams(location.search),p=document.getElementById('p'),s=document.getElementById('t');
+function fit(){s.textContent=Q.get('t')||NAMA;const fs=+Q.get('fs')||0;let f=p.clientHeight*(fs>0?fs/100:.62);s.style.fontSize=f+'px';
+ if(!(fs>0))while(s.scrollWidth>p.clientWidth*.82&&f>6){f--;s.style.fontSize=f+'px'}}
+addEventListener('resize',fit);fit();document.fonts&&document.fonts.ready.then(fit);
+</script>
+</body></html>
